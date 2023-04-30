@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 const productSchema = new Schema(
   {
-    restaurant: { type: String, required: true },
+    restaurant_id: { type: String, required: true },
     category: { type: String, required: true },
     name: { type: String, required: true },
     description: { type: String, required: true },

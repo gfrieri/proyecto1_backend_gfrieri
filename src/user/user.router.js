@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import {
   createUser,
-  deleteUser,
   readUserByID,
   readUserByMail,
   updateUser,
+  deleteUser,
 } from './user.controller';
 
 const userRouter = Router();

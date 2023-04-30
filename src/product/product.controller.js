@@ -13,6 +13,7 @@ export async function createProduct(req, res) {
 }
 
 //GET / Read
+//ID
 export async function readProduct(req, res) {
   try {
     const id = req.params.id;
@@ -22,8 +23,22 @@ export async function readProduct(req, res) {
     res.status(400).json(error.message);
   }
 }
+//Restaurant AND/OR Category
 export async function readProducts(req, res) {
-  res.json('product');
+  try {
+    const { restaurant_id, category } = req.query;
+    const filter = {
+      ...(restaurant_id && { restaurant_id: restaurant_id }),
+      ...(category && { category: category }),
+      active: true,
+    };
+    const documents = await productModel.find(filter);
+    documents.length > 0
+      ? res.status(200).json(documents)
+      : res.sendStatus(404);
+  } catch (error) {
+    res.status(400).json(error.message);
+  }
 }
 
 //PATCH / Update
@@ -54,34 +69,3 @@ export async function deleteProduct(req, res) {
     res.status(400).json(error.message);
   }
 }
-
-/*
-import userModel from './user.model';
-
-
-//GET / Read
-//ID
-export async function readUserByID(req, res) {
-  try {
-    const id = req.params.id;
-    const document = await userModel.findOne({ _id: id, active: true });
-    res.status(200).json(document);
-  } catch (error) {
-    res.status(400).json(error.message);
-  }
-}
-//Mail + Password
-export async function readUserByMail(req, res) {
-  try {
-    const { mail, password } = req.params;
-    const document = await userModel.findOne({
-      mail,
-      password,
-    });
-
-    document ? res.status(200).json(document) : res.sendStatus(404);
-  } catch (error) {
-    res.status(400).json(error.message);
-  }
-}
-*/

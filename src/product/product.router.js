@@ -3,8 +3,8 @@ import {
   createProduct,
   readProduct,
   readProducts,
-  deleteProduct,
   updateProduct,
+  deleteProduct,
 } from './product.controller';
 
 const productRouter = Router();
