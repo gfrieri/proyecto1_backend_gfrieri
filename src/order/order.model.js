@@ -2,9 +2,8 @@ import { Schema, model } from 'mongoose';
 
 const orderSchema = new Schema(
   {
-    user_id: { type: String, required: true, unique: true },
+    user_id: { type: String, required: true },
     restaurant_id: { type: String, required: true },
-    date: { type: Date, required: true },
     state: {
       type: String,
       required: true,
@@ -13,7 +12,7 @@ const orderSchema = new Schema(
         'enviado',
         'aceptado',
         'recibido',
-        'en dirección',
+        'en direccion',
         'realizado',
       ],
     },
