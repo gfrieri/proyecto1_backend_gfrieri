@@ -11,7 +11,7 @@ const restaurantSchema = new Schema(
         validator: function (array) {
           return array && array.length > 0;
         },
-        message: 'Debe ingresar al menos una categoría',
+        message: 'Debe ingresar al menos una categoría.',
       },
     },
     inventory: { type: Array, required: false },
