@@ -48,7 +48,7 @@ export async function readOrders(req, res) {
   }
 }
 //Enviados pero sin aceptar
-export async function readOrders(res) {
+export async function readSent(res) {
   try {
     const document = await orderModel.find({
       state: 'enviado',
