@@ -17,7 +17,7 @@ app.use('/order', orderRouter);
 
 mongoose
   .connect('mongodb+srv://cluster0.sblydjf.mongodb.net/', {
-    dbName: 'delivey',
+    dbName: 'delivery',
     user: 'test',
     pass: 'test',
   })
